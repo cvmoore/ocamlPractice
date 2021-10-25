@@ -27,12 +27,14 @@ let rec at num list =
     |
     h::t -> if num=1 then Some h else at (num-1) t
 
+(*Returns the length of a list*)
 let rec length list =
     match list with 
     [] -> 0
     |
     h::t -> 1 + (length t)
 
+(*Reverses a list*)
 let reverse list =
     let rec aux accum list = 
         match list with 
@@ -40,3 +42,6 @@ let reverse list =
         |
         h::t -> aux (h::accum) t
     in aux [] list
+
+let is_palindrome list =
+    list=(List.rev list)
