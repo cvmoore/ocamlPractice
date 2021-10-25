@@ -26,3 +26,9 @@ let rec at num list =
     [] -> None
     |
     h::t -> if num=1 then Some h else at (num-1) t
+
+let rec length list =
+    match list with 
+    [] -> 0
+    |
+    h::t -> 1 + (length t)
