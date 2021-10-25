@@ -32,3 +32,11 @@ let rec length list =
     [] -> 0
     |
     h::t -> 1 + (length t)
+
+let reverse list =
+    let rec aux accum list = 
+        match list with 
+        [] -> accum
+        |
+        h::t -> aux (h::accum) t
+    in aux [] list
