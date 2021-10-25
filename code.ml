@@ -17,3 +17,12 @@ let rec last_two list =
     h::t -> last_two t
     |
     [] -> None
+
+(*Find the Kth element of a list *)
+let rec at num list = 
+    match list with
+    [h] -> if num=1 then Some h else None
+    | 
+    [] -> None
+    |
+    h::t -> if num=1 then Some h else at (num-1) t
