@@ -45,3 +45,22 @@ let reverse list =
 
 let is_palindrome list =
     list=(List.rev list)
+
+(* There is no nested list type in OCaml, so we need to define one
+     first. A node of a nested list is either an element, or a list of
+     nodes. *)
+type 'a node =
+    | One of 'a 
+    | Many of 'a node list
+
+(*Flatten a nested list structure *)
+let flatten str =
+    let rec aux acc str =
+        match str with
+        [] -> acc
+        |
+        One h::t -> aux (h::acc) t
+        |
+        Many l :: t -> aux (aux acc l) t 
+in aux [] (List.rev str)
+
